@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Semáforo</title>
+    
+    <style>
+        .cajasemaforo{
+            padding:10px;
+            width:58px;
+            border: 1px solid black;
+            border-radius: 30px;
+            margin: 0 auto;
+            background-color: rgb(50,50,50);
+
+        }
+        .luzsemaforo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: grey;
+            border: 2px solid black;
+            padding: 1px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cajasemaforo">
+        <div class="luzsemaforo" id="red"></div> 
+        <div class="luzsemaforo" id="yellow"></div> 
+        <div class="luzsemaforo" id="green"></div>    
+    </div>
+
+    <script>
+        
+        function cambiarColor(id, prender)
+        {
+            var color='grey';
+            if(prender) color =id;
+            document.querySelector('#'+id).style.backgroundColor=color
+        }
+
+        cambiarColor('red', true);
+        cambiarColor('yellow', false);
+        cambiarColor('green', !true);
+    </script>
+</body>
+</html>
