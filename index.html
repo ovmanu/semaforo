@@ -27,21 +27,27 @@
             margin-bottom: 10px;
         }
 
+        .boton{
+            text-align: center;
+            padding: 10px;
+        }
     </style>
 </head>
 
 <body>
-    <h1>semaforo</h1>
     <div class="cajasemaforo">
         <div class="luzsemaforo" id="red"></div> 
         <div class="luzsemaforo" id="yellow"></div> 
         <div class="luzsemaforo" id="green"></div>    
+    </div
+    >
+    <div class="boton">
+        <button onclick="onBotonCambiar()">CAMBIAR</button>
     </div>
 
     <script>
         
-        function cambiarColor(id, prender)
-        {
+        function cambiarColor(id, prender){
             var color='grey';
             if(prender==true) color =id;
             document.querySelector('#'+id).style.backgroundColor=color
@@ -50,6 +56,43 @@
         cambiarColor('red', !true);
         cambiarColor('yellow', false);
         cambiarColor('green', true);
+
+        setInterval(onBotonCambiar,600);
+
+        var estado=0;
+        function onBotonCambiar(){
+            console.log(estado);
+            
+            switch(estado){
+                case 0:
+                    cambiarColor('red', true);
+                    cambiarColor('yellow', false);
+                    cambiarColor('green', false);
+                    break;
+                case 1:
+                    cambiarColor('red', true);
+                    cambiarColor('yellow', true);
+                    cambiarColor('green', false);
+                    break;
+                case 2:
+                    cambiarColor('red', false);
+                    cambiarColor('yellow', false);
+                    cambiarColor('green', true);
+                    break;
+                case 3:
+                    cambiarColor('red', false);
+                    cambiarColor('yellow', true);
+                    cambiarColor('green', false);
+                    break;
+                default:
+                    cambiarColor('red', false);
+                    cambiarColor('yellow', false);
+                    cambiarColor('green', false);
+                    break;
+            }
+            estado++;
+            if (estado>3) estado=0;
+        }
     </script>
 </body>
 </html>
