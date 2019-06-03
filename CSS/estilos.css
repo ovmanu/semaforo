@@ -1,0 +1,31 @@
+
+.cajasemaforo{
+    padding:10px;
+    width:56px;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin: 0 auto;
+    background-color: rgb(50,50,50);
+
+}
+.luzsemaforo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: grey;
+    border: 2px solid black;
+    padding: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.boton{
+    text-align: center;
+    padding: 10px;
+}
+
+button{
+    background-color: brown;
+    color:white;
+    border-radius: 15px;
+}

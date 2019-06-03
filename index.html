@@ -5,33 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Semáforo</title>
-    
-    <style>
-        .cajasemaforo{
-            padding:10px;
-            width:56px;
-            border: 1px solid black;
-            border-radius: 30px;
-            margin: 0 auto;
-            background-color: rgb(50,50,50);
-
-        }
-        .luzsemaforo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: grey;
-            border: 2px solid black;
-            padding: 1px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .boton{
-            text-align: center;
-            padding: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/estilos.css">    
 </head>
 
 <body>
@@ -39,60 +13,16 @@
         <div class="luzsemaforo" id="red"></div> 
         <div class="luzsemaforo" id="yellow"></div> 
         <div class="luzsemaforo" id="green"></div>    
-    </div
-    >
-    <div class="boton">
-        <button onclick="onBotonCambiar()">CAMBIAR</button>
     </div>
 
-    <script>
-        
-        function cambiarColor(id, prender){
-            var color='grey';
-            if(prender==true) color =id;
-            document.querySelector('#'+id).style.backgroundColor=color
-        }
+    <div class="boton">
+            <button id="boton-auto"  onclick="onBotonAuto()">MODO AUTOMÁTICO</button>
+    </div>
 
-        cambiarColor('red', !true);
-        cambiarColor('yellow', false);
-        cambiarColor('green', true);
-
-        setInterval(onBotonCambiar,600);
-
-        var estado=0;
-        function onBotonCambiar(){
-            console.log(estado);
-            
-            switch(estado){
-                case 0:
-                    cambiarColor('red', true);
-                    cambiarColor('yellow', false);
-                    cambiarColor('green', false);
-                    break;
-                case 1:
-                    cambiarColor('red', true);
-                    cambiarColor('yellow', true);
-                    cambiarColor('green', false);
-                    break;
-                case 2:
-                    cambiarColor('red', false);
-                    cambiarColor('yellow', false);
-                    cambiarColor('green', true);
-                    break;
-                case 3:
-                    cambiarColor('red', false);
-                    cambiarColor('yellow', true);
-                    cambiarColor('green', false);
-                    break;
-                default:
-                    cambiarColor('red', false);
-                    cambiarColor('yellow', false);
-                    cambiarColor('green', false);
-                    break;
-            }
-            estado++;
-            if (estado>3) estado=0;
-        }
-    </script>
+    <div class="boton" id="boton-cambiar">
+        <button onclick="onBotonCambiar()">CAMBIAR</button>
+    </div>
+    
+    <script src="js/main.js"></script>
 </body>
 </html>
